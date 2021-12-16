@@ -31,13 +31,10 @@ public class AirCompany {
     @Enumerated(value = EnumType.STRING)
     private CompanyType companyType;
 
-@OneToMany(mappedBy = "airCompany", fetch = FetchType.LAZY)
-    private List<Airplain> airplains;
+    @OneToMany(mappedBy = "airCompany", fetch = FetchType.LAZY)
+        private List<Airplain> airplains;
 
-@ManyToMany
-    @JoinTable(name = "service", joinColumns = @JoinColumn(name = "id_air_company", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "id_flight", referencedColumnName = "id")
-    )
-    private List<Flight> flights;
+    @OneToMany(mappedBy = "airCompany", fetch = FetchType.LAZY)
+        private List<Flight> flights;
 
 }

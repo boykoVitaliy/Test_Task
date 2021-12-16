@@ -1,14 +1,17 @@
 package com.ua.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ua.Entity.Enum.FlightStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import javax.persistence.*;
-import java.util.List;
+import java.util.Date;
 
 @Builder
 @Entity
@@ -31,22 +34,28 @@ public class Flight {
     @Column(nullable = false)
     private Double distance;
 
-    @Column(nullable = false)
-    private Double estimatedFlightTime;
-
-    @Column(nullable = false)
-    private Double endedAt;
+    @Column(nullable = true)
+    private Date estimatedFlightTime;
 
     @Column(nullable = true)
-    private Double delayStartedAt;
+    private Date endedAt;
+
+    @Column(nullable = true)
+    private Date delayStartedAt;
+
 
     @Column(nullable = false)
-    private Double createdAt;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date createdAt;
 
     @Enumerated(value = EnumType.STRING)
     private FlightStatus flightStatus;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "flights")
-    private List<AirCompany> airCompanies;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private AirCompany airCompany;
+
+    @ManyToOne
+    private Airplain airplain;
 
 }

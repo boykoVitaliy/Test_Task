@@ -8,10 +8,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Builder
 @Entity
-@Table(name = "airplain")
+@Table(name="airplain")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,10 +40,9 @@ private Long id;
 @Enumerated(value = EnumType.STRING)
     private AirplaineType airplaineType;
 
-@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "air_company_id")
-    @JsonIgnore
+@ManyToOne
     private AirCompany airCompany;
 
-
+@OneToMany(mappedBy = "airplain", fetch = FetchType.LAZY)
+    private List<Flight> flights;
 }
