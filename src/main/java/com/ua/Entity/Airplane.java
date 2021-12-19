@@ -1,7 +1,6 @@
 package com.ua.Entity;
 
-import com.ua.Entity.Enum.AirplaineType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ua.Entity.Enum.AirplaneType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Airplain {
+public class Airplane {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +37,7 @@ private Long id;
     private Long factorySerialNumber;
 
 @Enumerated(value = EnumType.STRING)
-    private AirplaineType airplaineType;
+    private AirplaneType airplaneType;
 
 @ManyToOne
     private AirCompany airCompany;

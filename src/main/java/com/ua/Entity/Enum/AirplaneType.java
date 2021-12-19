@@ -1,6 +1,6 @@
 package com.ua.Entity.Enum;
 
-public enum AirplaineType {
+public enum AirplaneType {
 
     CARGO, PASSENGER
 }

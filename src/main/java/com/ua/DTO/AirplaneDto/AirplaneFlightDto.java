@@ -1,4 +1,4 @@
-package com.ua.DTO.AirplainDto;
+package com.ua.DTO.AirplaneDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AirplainFlightDto {
+public class AirplaneFlightDto {
 
     private Long id;
     private String name;

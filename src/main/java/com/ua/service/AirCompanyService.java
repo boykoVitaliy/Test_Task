@@ -6,9 +6,11 @@ import com.ua.DTO.FlightDto.FlightDto;
 import com.ua.Entity.AirCompany;
 import com.ua.Entity.Enum.CompanyType;
 import javassist.NotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface AirCompanyService {
 
     void deleteById(Long id);

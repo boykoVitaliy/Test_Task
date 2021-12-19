@@ -1,7 +1,6 @@
 package com.ua.Entity;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ua.Entity.Enum.FlightStatus;
 import lombok.AllArgsConstructor;
@@ -34,18 +33,18 @@ public class Flight {
     @Column(nullable = false)
     private Double distance;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private Date estimatedFlightTime;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private Date endedAt;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private Date delayStartedAt;
 
 
     @Column(nullable = false)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
 
     @Enumerated(value = EnumType.STRING)
@@ -56,6 +55,6 @@ public class Flight {
     private AirCompany airCompany;
 
     @ManyToOne
-    private Airplain airplain;
+    private Airplane airplain;
 
 }

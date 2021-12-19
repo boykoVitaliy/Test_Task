@@ -14,9 +14,9 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class AirCompanySaveDto {
 
-    @NotNull
+//    @NotNull
     private String name;
-    @NotNull
+//    @NotNull
     private String foundedAt;
 
     @Enumerated(value = EnumType.STRING)

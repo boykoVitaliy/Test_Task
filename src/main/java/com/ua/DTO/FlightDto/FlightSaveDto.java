@@ -1,12 +1,11 @@
 package com.ua.DTO.FlightDto;
 
-import com.ua.Entity.Enum.FlightStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -15,12 +14,19 @@ import java.util.Date;
 @NoArgsConstructor
 public class FlightSaveDto {
 
+    @NotNull
     private String departureCountry;
+    @NotNull
     private String destinationCountry;
+    @NotNull
     private Double distance;
+    @NotNull
     private Date estimatedFlightTime;
+    @NotNull
     private Date endedAt;
+    @NotNull
     private Date delayStartedAt;
+    @NotNull
     private Date createdAt;
 
 }

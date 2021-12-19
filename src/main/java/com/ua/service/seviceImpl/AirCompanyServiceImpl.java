@@ -7,7 +7,6 @@ import com.ua.Entity.Enum.CompanyType;
 import com.ua.repository.AirCompanyRepository;
 import com.ua.service.AirCompanyService;
 import com.ua.exception.NotFoundException;
-//import javassist.NotFoundException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;

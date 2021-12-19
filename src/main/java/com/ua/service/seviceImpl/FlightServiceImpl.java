@@ -7,6 +7,7 @@ import com.ua.Entity.Flight;
 import com.ua.exception.NotFoundException;
 import com.ua.repository.FlightRepository;
 import com.ua.service.FlightService;
+import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,7 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
-    public Flight updateStatus(Long flightId, FlightStatus flightStatus) {
+    public Flight updateStatus(Long flightId, @NotNull FlightStatus flightStatus) {
         Date rightDate = new java.util.Date();
         if(flightStatus.equals(FlightStatus.DELAYED)){
             return flightRepository.findById(flightId).map(flight -> {
@@ -70,7 +71,7 @@ public class FlightServiceImpl implements FlightService {
                 flight.setFlightStatus(flightStatus);
                 flight.setEstimatedFlightTime(flight.getEstimatedFlightTime());
                 return flightRepository.save(flight);
-            }).orElseThrow(()->new NotFoundException("Not_Foud_Id"+flightId));
+            }).orElseThrow(()->new NotFoundException("Not_Found_Id"+flightId));
         }
         else if(flightStatus.equals(FlightStatus.COMPLETED)){
             return flightRepository.findById(flightId).map(flight -> {

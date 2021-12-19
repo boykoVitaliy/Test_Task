@@ -1,7 +1,6 @@
 package com.ua.Entity;
 
 import com.ua.Entity.Enum.CompanyType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-
+@Builder
 @Entity
 @Table(name = "air_company")
 @Data
@@ -32,7 +31,7 @@ public class AirCompany {
     private CompanyType companyType;
 
     @OneToMany(mappedBy = "airCompany", fetch = FetchType.LAZY)
-        private List<Airplain> airplains;
+        private List<Airplane> airplanes;
 
     @OneToMany(mappedBy = "airCompany", fetch = FetchType.LAZY)
         private List<Flight> flights;
