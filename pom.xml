@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.4.RELEASE</version>
+        <version>2.3.3.RELEASE</version>
     </parent>
 
     <groupId>org.example</groupId>
@@ -22,6 +22,11 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
         <!--logger-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
