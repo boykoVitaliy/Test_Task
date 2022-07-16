@@ -1,0 +1,23 @@
+node {
+    stage 'Clone the project'
+    git ' https://github.com/vitaliyBoykoS/Test_Task.git'
+    agent 'java'
+
+
+        stage("Compilation and Analysis") {
+            parallel 'Compilation': {
+                sh "sudo fuser -k 443/tcp || true"
+                sh "mvn clean install -DskipTests"
+            }
+        }
+
+
+
+            stage("Staging") {
+                sh "sudo mvn spring-boot:run || true"
+                 stage("Finish"){
+
+                 }
+            }
+             echo "finish build"
+    }
