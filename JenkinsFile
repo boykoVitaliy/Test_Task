@@ -1,6 +1,5 @@
-node {
-    stage 'Clone the project'
-    git ' https://github.com/vitaliyBoykoS/Test_Task.git'
+pipeline {
+
     agent 'java'
 
 
