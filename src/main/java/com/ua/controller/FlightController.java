@@ -46,7 +46,7 @@ public class FlightController {
         return flightService.findByFlightStatusCompletedAndFlightStatusDelayed();
     }
 
-    @PutMapping("/flight/statusupdate")
+    @PutMapping("/flight/status/update")
     public Flight updateStatus(Long flightId, FlightStatus flightStatus) {
         return flightService.updateStatus(flightId, flightStatus);
     }
