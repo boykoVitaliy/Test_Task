@@ -18,7 +18,7 @@
         <modelmapper.version>2.3.5</modelmapper.version>
         <lombok.version>1.18.22</lombok.version>
         <plugin.maven.jacoco.version>0.8.3</plugin.maven.jacoco.version>
-        <start-class>com.xxx.yyy.MainClass</start-class>
+        <start-class>com.ua.Application</start-class>
     </properties>
 
     <dependencies>
