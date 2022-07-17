@@ -1,7 +1,7 @@
 node {
 
     agent 'java'
-
+    git ' https://github.com/vitaliyBoykoS/Test_Task.git' 
 
         stage("Compilation and Analysis") {
             parallel 'Compilation': {
