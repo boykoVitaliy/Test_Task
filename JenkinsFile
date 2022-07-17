@@ -15,8 +15,7 @@ node {
         stage("Tests and Deployment") { 
 
             stage("Staging") {
-                sh "sudo pid=\$(lsof -i:80 -t); sudo kill -TERM \$pid "
-                  + "|| sudokill -KILL \$pid"
+               'sudo fuser -k 80/tcp || true'
                  withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                 sh 'nohup sudo java -jar Test_Task-1.0-SNAPSHOT.jar >> server.log 2>&1&'
             }
