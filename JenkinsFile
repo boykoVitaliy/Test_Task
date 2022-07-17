@@ -1,22 +1,24 @@
 node {
-
-    agent 'java'
-    git ' https://github.com/vitaliyBoykoS/Test_Task.git' 
-
-        stage("Compilation and Analysis") {
+    stage 'Clone the project'
+     agent 'java'
+    git 'https://github.com/vitaliyBoykoS/Test_Task.git'
+   
+  
+    dir('spring-jenkins-pipeline') {
+       stage("Compilation and Analysis") { 
             parallel 'Compilation': {
-                sh "sudo fuser -k 443/tcp || true"
-                sh "mvn clean install -DskipTests"
+                sh "sudo fuser -k 443/tcp || true" 
+                sh "mvn clean install -DskipTests" 
+            } 
+        } 
+        
+            
+            stage("Staging") {
+                sh "pid=\$(lsof -i:80 -t); kill -TERM \$pid " 
+                  + "|| kill -KILL \$pid"
+                withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+                    sh 'nohup mvn spring-boot:run -Dserver.port=80 &'
+                }   
             }
         }
-
-
-
-            stage("Staging") {
-                sh "sudo mvn spring-boot:run || true"
-                 stage("Finish"){
-
-                 }
-            }
-             echo "finish build"
     }
