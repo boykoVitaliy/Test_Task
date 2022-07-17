@@ -13,15 +13,14 @@ node {
         } 
          
         stage("Tests and Deployment") { 
-            parallel 'Unit tests': { 
-                stage("Runing unit tests") { 
-                    sh "mvn test -Punit" 
-                } 
-            } 
-             
-            stage("Staging") { 
-                sh 'nohup sudo mvn spring-boot:run'     
-            } 
+
+            stage("Staging") {
+                sh "sudo pid=\$(lsof -i:80 -t); sudo kill -TERM \$pid "
+                  + "|| sudokill -KILL \$pid"
+                 withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+                sh 'nohup sudo java -jar Test_Task-1.0-SNAPSHOT.jar >> server.log 2>&1&'
+            }
+            }
         } 
     } 
 }
