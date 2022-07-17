@@ -18,6 +18,7 @@
         <modelmapper.version>2.3.5</modelmapper.version>
         <lombok.version>1.18.22</lombok.version>
         <plugin.maven.jacoco.version>0.8.3</plugin.maven.jacoco.version>
+        <start-class>com.xxx.yyy.MainClass</start-class>
     </properties>
 
     <dependencies>
@@ -150,6 +151,21 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <mainClass>${start-class}</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
