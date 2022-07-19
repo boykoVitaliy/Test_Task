@@ -31,10 +31,10 @@ public class AirCompanyController {
         return airCompanyService.findAllByName(name);
     }
 
-    @GetMapping("/aircompany/companyId")
-    public List<AirCompanyDto> findById(Long id) {
-        return airCompanyService.findById(id);
-    }
+//    @GetMapping("/aircompany/companyId")
+//    public List<AirCompanyDto> findById(Long id) {
+//        return airCompanyService.findById(id);
+//    }
 
 
     @GetMapping("/aircompany/type")
