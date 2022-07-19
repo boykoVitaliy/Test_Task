@@ -17,7 +17,7 @@ node {
             stage("Staging") {
                'sudo fuser -k 80/tcp || true'
                  withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-                sh 'nohup sudo mvn spring-boot:run >> server.log 2>&1&'
+                sh 'nohup sudo mvn spring-boot:run '
                 }
             }
         } 
