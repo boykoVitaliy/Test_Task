@@ -35,11 +35,16 @@ public class AirCompanyServiceImpl implements AirCompanyService {
     }
 
     @Override
+    public List<AirCompanyDto> findById(Long id) {
+        return modelMapper.map(airCompanyRepository.findById(id),
+                new TypeToken<List<AirCompanyDto>>(){}.getType());
+    }
+
+    @Override
     public List<AirCompanyDto> findByCompanyType(CompanyType companyType) {
         return modelMapper.map(airCompanyRepository.findByCompanyType(companyType),
                 new TypeToken<List<AirCompanyDto>>(){}.getType());
     }
-
     @Override
     public AirCompany save(AirCompanySaveDto airCompanySaveDto) {
         return airCompanyRepository.save(modelMapper.map(airCompanySaveDto, AirCompany.class));

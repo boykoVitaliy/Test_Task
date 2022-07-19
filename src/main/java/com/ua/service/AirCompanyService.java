@@ -19,6 +19,8 @@ public interface AirCompanyService {
     List<AirCompanyDto> findAllByName(String name);
     List<AirCompanyDto> findByCompanyType(CompanyType companyType);
 
+    List<AirCompanyDto> findById(Long id);
+
     AirCompany save (AirCompanySaveDto airCompanySaveDto);
 
 }

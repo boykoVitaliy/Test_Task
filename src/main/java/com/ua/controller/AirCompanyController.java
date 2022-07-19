@@ -31,10 +31,17 @@ public class AirCompanyController {
         return airCompanyService.findAllByName(name);
     }
 
+    @GetMapping("/aircompany/companyId")
+    public List<AirCompanyDto> findById(Long id) {
+        return airCompanyService.findById(id);
+    }
+
+
     @GetMapping("/aircompany/type")
     public List<AirCompanyDto> findByCompanyType(CompanyType companyType) {
         return airCompanyService.findByCompanyType(companyType);
     }
+
     @GetMapping("/aircompany")
     public void deleteById(Long id){
         airCompanyService.deleteById(id);
