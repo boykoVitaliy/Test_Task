@@ -13,14 +13,5 @@ node {
             } 
         } 
          
-         stage("Tests and Deployment") { 
-
-            stage("Staging") {
-               
-                 withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-                sh 'nohup sudo mvn spring-boot:run >> server.log 2>&1&'
-                }
-            }
-        } 
-    }
+        
 }
