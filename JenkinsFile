@@ -9,7 +9,7 @@ node {
             parallel 'Compilation': {
                
                 sh "sudo fuser -k 80/tcp || true"
-                sh "mvn clean install -DskipTests" 
+                
             } 
         } 
          
